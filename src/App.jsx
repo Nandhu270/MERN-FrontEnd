@@ -15,6 +15,8 @@ import Account from "./Components/Account";
 import AccountDetails from "./Components/AccountDetails";
 import Jwt from "./Components/Jwt";
 import Page from './Components/Page'
+import RestaurantApp from "./RestaurantApp";
+import Home from "./RestaurantApp/Home";
 
 export default function App() {
   return (
@@ -37,6 +39,11 @@ export default function App() {
           <Route path="account" element={<Account />} />
           <Route path="details" element={<AccountDetails />} />
         </Route>
+
+        <Route path="/app/food" element={<RestaurantApp />}> 
+          <Route index element={<Home />}/>
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );

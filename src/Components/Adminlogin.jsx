@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export default function Adminlogin() {
   const [message, setMessage] = useState({
-    msg: "hai",
-    type: "primary",
+    msg: "",
+    type: "",
   });
 
   const [error, setError] = useState({
