@@ -19,6 +19,10 @@ import RestaurantApp from "./RestaurantApp";
 import DashBoard from './RestaurantApp/Dashboard';
 import CustomerLogin from "./RestaurantApp/CustomerLogin";
 import CustomerRegister from './RestaurantApp/CustomerRegister';
+import Natureindex from "./NatureApp/Natureindex";
+import NatureLogin from "./NatureApp/NatureLogin";
+import NatureRegister from "./NatureApp/NatureRegister";
+import NatureDashboard from "./NatureApp/NatureDashboard";
 
 export default function App() {
   return (
@@ -46,6 +50,12 @@ export default function App() {
           <Route index element={<CustomerLogin />} />
           <Route path="register" element={<CustomerRegister />} />
           <Route path="dashboard" element={<DashBoard />} />
+        </Route>
+
+        <Route path="/app/nature/*" element={<Natureindex />}>
+          <Route index element={<NatureLogin />} />
+          <Route path="register" element={<NatureRegister />} />
+          <Route path="dashboard" element={<NatureDashboard />} />
         </Route>
 
       </Routes>
