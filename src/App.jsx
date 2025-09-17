@@ -16,7 +16,9 @@ import AccountDetails from "./Components/AccountDetails";
 import Jwt from "./Components/Jwt";
 import Page from './Components/Page'
 import RestaurantApp from "./RestaurantApp";
-import Home from "./RestaurantApp/Home";
+import DashBoard from './RestaurantApp/Dashboard';
+import CustomerLogin from "./RestaurantApp/CustomerLogin";
+import CustomerRegister from './RestaurantApp/CustomerRegister';
 
 export default function App() {
   return (
@@ -40,8 +42,10 @@ export default function App() {
           <Route path="details" element={<AccountDetails />} />
         </Route>
 
-        <Route path="/app/food" element={<RestaurantApp />}> 
-          <Route index element={<Home />}/>
+        <Route path="/app/food/*" element={<RestaurantApp />}> 
+          <Route index element={<CustomerLogin />} />
+          <Route path="register" element={<CustomerRegister />} />
+          <Route path="dashboard" element={<DashBoard />} />
         </Route>
 
       </Routes>
