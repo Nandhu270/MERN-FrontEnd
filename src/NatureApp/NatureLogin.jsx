@@ -47,7 +47,7 @@ export default function NatureLogin() {
     const checkerror = handleError();
     if (!checkerror) return;
     try {
-      const res = await axios.post("http://localhost:5000/api/nature/login",data);
+      const res = await axios.post("http://localhost:5000/api/nature/login",data, { withCredentials: true });
       if(res.status == 200)
       setlogin(true);
     } catch (err) {

@@ -23,6 +23,9 @@ import Natureindex from "./NatureApp/Natureindex";
 import NatureLogin from "./NatureApp/NatureLogin";
 import NatureRegister from "./NatureApp/NatureRegister";
 import NatureDashboard from "./NatureApp/NatureDashboard";
+import Imageindex from "./ImageApp/Imageindex";
+import ImageForm from "./ImageApp/ImageForm";
+import ViewImage from "./ImageApp/ViewImage";
 
 export default function App() {
   return (
@@ -56,6 +59,11 @@ export default function App() {
           <Route index element={<NatureLogin />} />
           <Route path="register" element={<NatureRegister />} />
           <Route path="dashboard" element={<NatureDashboard />} />
+        </Route>
+
+        <Route path="/app/image/*" element={<Imageindex />}>
+          <Route index element={<ImageForm />} />
+          <Route path="view" element={<ViewImage />} />
         </Route>
 
       </Routes>
