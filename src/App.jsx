@@ -26,6 +26,13 @@ import NatureDashboard from "./NatureApp/NatureDashboard";
 import Imageindex from "./ImageApp/Imageindex";
 import ImageForm from "./ImageApp/ImageForm";
 import ViewImage from "./ImageApp/ViewImage";
+import FeedBackindex from "./FeedBack/FeedBackindex.jsx";
+import FeedBackLogin from "./FeedBack/FeedBackLogin.jsx";
+import FeedBackRegister from "./FeedBack/FeedBackRegister.jsx";
+import FeedBackDashboard from "./FeedBack/FeedBackDashboard.jsx";
+import FeedBack from "./FeedBack/FeedBack.jsx";
+import ViewFeedBack from "./FeedBack/ViewFeedBack.jsx";
+
 
 export default function App() {
   return (
@@ -65,6 +72,14 @@ export default function App() {
           <Route index element={<ImageForm />} />
           <Route path="view" element={<ViewImage />} />
         </Route>
+
+          <Route path='/app/feedback/*'  element={<FeedBackindex />} >
+              <Route index element={<FeedBackLogin />} />
+              <Route path='register' element={<FeedBackRegister />} />
+              <Route path='dashboard' element={<FeedBackDashboard />} />
+              <Route path="add" element={<FeedBack />} />
+              <Route path="view" element={<ViewFeedBack />} />
+          </Route>
 
       </Routes>
     </BrowserRouter>
