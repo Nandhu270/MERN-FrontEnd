@@ -32,6 +32,7 @@ import FeedBackRegister from "./FeedBack/FeedBackRegister.jsx";
 import FeedBackDashboard from "./FeedBack/FeedBackDashboard.jsx";
 import FeedBack from "./FeedBack/FeedBack.jsx";
 import ViewFeedBack from "./FeedBack/ViewFeedBack.jsx";
+import UpdateFeedBack from "./FeedBack/UpdateFeedBack.jsx";
 
 
 export default function App() {
@@ -79,6 +80,7 @@ export default function App() {
               <Route path='dashboard' element={<FeedBackDashboard />} />
               <Route path="add" element={<FeedBack />} />
               <Route path="view" element={<ViewFeedBack />} />
+              <Route path="update" element={<UpdateFeedBack />} />
           </Route>
 
       </Routes>

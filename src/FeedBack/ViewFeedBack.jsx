@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ViewFeedBack() {
   const [data, setData] = useState([]);
@@ -21,13 +21,25 @@ export default function ViewFeedBack() {
         { withCredentials: true }
       );
       setData(res.data.data);
-      console.log(res.data.data);
+      //   console.log(res.data.data);
     } catch (err) {
       if (err.response) {
         if (err.response.data.msg === "jwt expired") setExpiry(true);
       } else {
         console.log(err.message);
       }
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const res = await axios.delete(`/api/feedback/deletefeedback?id=${id}`, {
+        withCredentials: true,
+      });
+      // console.log(res);
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
     }
   };
 
@@ -58,6 +70,24 @@ export default function ViewFeedBack() {
                   <p className="card-text flex-grow-1">
                     <strong>Feedback:</strong> {item.feedback}
                   </p>
+
+                  {/* Buttons at the bottom */}
+                  <div className="mt-auto d-flex justify-content-between">
+                
+                      <Link
+                        to={`/app/feedback/update?id=${item._id}`}
+                        className="btn btn-warning btn-sm"
+                      >
+                        Update
+                      </Link>
+                    
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             </Col>
